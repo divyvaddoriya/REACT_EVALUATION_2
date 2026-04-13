@@ -25,7 +25,7 @@ const navigate = useNavigate()
     return (
     <div>
         Task
-       <div key={data.id}>
+       <div style={{border:"1px solid white"}} key={data.id}>
                            <div>{data.id}</div>
                            <div>{data.name}</div>
                            <div>{data.status}</div>

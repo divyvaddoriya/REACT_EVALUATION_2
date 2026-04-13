@@ -30,7 +30,7 @@ const Tasks = () => {
 
         {
             tasks.map((task)=>{
-                return <div onClick={() => navigate(`/dashboard/${task.id}`)} key={task.id}>
+                return <div style={{border:"1px solid white"}} onClick={() => navigate(`/dashboard/${task.id}`)} key={task.id}>
                     <div>{task.id}</div>
                     <div>{task.name}</div>
                     <div>{task.status}</div>
@@ -38,7 +38,7 @@ const Tasks = () => {
                     sub task : 
                     <div>
                         {task.subTasks.map((subtask) => {
-                            return <div>
+                            return <div  style={{border:"1px solid white"}}>
                                 <div>
                                     {subtask.id}
                                 </div>
