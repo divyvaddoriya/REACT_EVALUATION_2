@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 
 import type { RootState } from '../main'
@@ -14,7 +14,7 @@ const Task = () => {
 
      const tasks = useSelector((state :RootState ) => state.task.tasks )
     const data = tasks.find((task) => task.id == Number(id))
-
+const navigate = useNavigate()
 
      const [subtask , setSubTask] = useState({
         id: 0,
@@ -29,7 +29,7 @@ const Task = () => {
                            <div>{data.id}</div>
                            <div>{data.name}</div>
                            <div>{data.status}</div>
-                           <button onClick={()=> dispatch(remove({id : id}))}>remove Task</button>
+                           <button onClick={()=>{ dispatch(remove({id : id})) ;navigate('/dashboard')  }}>remove Task</button>
                            sub task : 
                            <div>
                                {data.subTasks.map((subtask) => {
