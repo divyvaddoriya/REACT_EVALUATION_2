@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 
 import type { RootState } from '../main'
-import { addsubtask, remove } from '../redux/store'
+import { addsubtask, remove, removesubtask } from '../redux/store'
 
 
 const Task = () => {
@@ -43,6 +43,7 @@ const navigate = useNavigate()
                                        <div>
                                            {subtask.status}
                                        </div>
+                                       <button  onClick={()=> dispatch(removesubtask({id : subtask.id , taskId : id}))}>remove sub Task</button>
                                    </div>
                                })}
                            </div>

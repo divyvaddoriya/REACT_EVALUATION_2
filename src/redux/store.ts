@@ -30,10 +30,14 @@ const reviewSlice = createSlice({
         addsubtask: (state , action ) => {
             const task = state.tasks.find((task ) => task.id == action.payload.taskId)
             task.subTasks.push({id: action.payload.id , name : action.payload.id , status : action.payload.status})
-        }   
+        } ,
+        removesubtask : (state , action ) => {
+            const task = state.tasks.find((task ) => task.id == action.payload.taskId)
+             task.subTasks = task.subTasks.filter((task )=> task.id != action.payload.id)
+        }
     } 
 })
 
 export type {Tasks}
-export const {add  , remove , addsubtask } =  reviewSlice.actions
+export const {add  , remove , addsubtask  , removesubtask} =  reviewSlice.actions
 export default reviewSlice.reducer
